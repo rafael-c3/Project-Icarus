@@ -6,9 +6,9 @@ app.innerHTML = `
         <img src="img/logoheader.png" alt="Icarus Café">
     </div>
 
-    <h1>Icarus</h1>
     <nav>
       <a href="#home">Início</a>
+      <a href="../menu/menu.html" class="btn-nav">Cardápio</a>
       <a href="#sobre">Quem Somos</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -21,7 +21,7 @@ app.innerHTML = `
         <h2>Bem-vindo ao</h2>
         <h2>Icarus Café</h2
         <p>Sabores únicos, aroma marcante e experiências inesquecíveis.</p>
-        <a href="#sobre" class="btn">Conheça Mais</a>
+        <a href="../menu/menu.html" class="btn">Conheça Mais</a>
     </div>
 </section>
   <section id="home" class="hero">
@@ -33,7 +33,7 @@ app.innerHTML = `
     
     <div class="sobre-img">
         <img src="img/quemsomos.png" alt="Nossa Cafeteria">
-        <img src="img/cafeteria.jpg" alt="Nossa Cafeteria">
+        
     </div>
 
     <div class="sobre-texto">
@@ -85,16 +85,5 @@ app.innerHTML = `
     </div>
 
 </footer>
-  <section id="contate">
-    <h2>Contato</h2>
-    <p>Email: contato@auroracafe.com</p>
-    <p>Telefone: (83) 99999-9999</p>
-  </section>
-
-  <footer>
-    <p>© 2026 Aurora Café</p>
-     <h2>Contato</h2>
-    <p>Email: contato@auroracafe.com</p>
-    <p>Telefone: (83) 99999-9999</p>
-  </footer>
+ 
 `;

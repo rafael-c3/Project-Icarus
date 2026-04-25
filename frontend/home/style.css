@@ -226,6 +226,19 @@ section{
     color: #ddd;
     margin-bottom: 15px;
 }
+.btn-nav{
+    padding: 12px 22px;
+    background: #1e1e1e;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: .3s;
+}
+
+.btn-nav:hover{
+    background: #c49b63;
+    transform: translateY(-2px);
+}
 
 .btn-sobre{
     display: inline-block;
