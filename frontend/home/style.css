@@ -6,6 +6,7 @@
 
 body{
   font-family:'Poppins',sans-serif;
+  font-family:Arial, sans-serif;
   background:#fff3e6;
   color:rgb(68, 68, 68);
 }
@@ -52,6 +53,10 @@ nav a{
 nav a:hover{
     background: #c49b63;
     transform: translateY(-2px);
+  display:flex;
+  justify-content:space-between;
+  padding:20px 50px;
+  background:#725e06;
 }
 
 nav a{
@@ -258,4 +263,17 @@ footer{
     margin: 4px 0;
     color: #ccc;
     font-size: 15px;
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 28px;
+    background:#c49b63;
+    color:#fff;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:#000;
 }

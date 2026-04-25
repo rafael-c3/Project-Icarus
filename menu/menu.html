@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cafeteria Aroma</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <p>O melhor café da cidade</p>
+</header>
+
+<input type="text" id="busca" placeholder="Buscar produto..." onkeyup="buscar()">
+
+<section class="filtros">
+  <button onclick="filtrar('todos')">Todos</button>
+  <button onclick="filtrar('cafe')">Cafés</button>
+  <button onclick="filtrar('doce')">Doces</button>
+</section>
+
+<section class="menu" id="menu">
+  
+  <div class="card" data-categoria="cafe">
+    <img src="img/expresso.jpg" alt="Espresso">
+    <h3>Espresso</h3>
+    <p>Forte e encorpado</p>
+    <span>R$ 6,00</span>
+  </div>
+
+  <div class="card" data-categoria="cafe">
+    <img src="img/cappuccino.jpg" alt="Cappuccino">
+    <h3>Cappuccino</h3>
+    <p>Com leite vaporizado</p>
+    <span>R$ 10,00</span>
+  </div>
+
+  <div class="card" data-categoria="doce">
+    <img src="img/chocolate cake.jpg" alt="Bolo de Chocolate">
+    <h3>Bolo de Chocolate</h3>
+    <p>Fofinho e intenso</p>
+    <span>R$ 12,00</span>
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

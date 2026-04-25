@@ -3,9 +3,10 @@ const app = document.getElementById("app");
 app.innerHTML = `
   <header>
     <div class="logo">
-        <img src="img/logoheader.png" alt="Aurora Café">
+        <img src="img/logoheader.png" alt="Icarus Café">
     </div>
 
+    <h1>Icarus</h1>
     <nav>
       <a href="#home">Início</a>
       <a href="#sobre">Quem Somos</a>
@@ -23,17 +24,23 @@ app.innerHTML = `
         <a href="#sobre" class="btn">Conheça Mais</a>
     </div>
 </section>
+  <section id="home" class="hero">
+    <h2>O melhor café da cidade</h2>
+    <p>Sabor, aroma e experiência moderna.</p>
+  </section>
 
   <section id="sobre" class="sobre">
     
     <div class="sobre-img">
         <img src="img/quemsomos.png" alt="Nossa Cafeteria">
+        <img src="img/cafeteria.jpg" alt="Nossa Cafeteria">
     </div>
 
     <div class="sobre-texto">
         <h2>Quem Somos</h2>
         <p>
             No Icarus Café, acreditamos que cada xícara conta uma história.
+            No Aurora Café, acreditamos que cada xícara conta uma história.
             Unimos grãos selecionados, ambiente acolhedor e atendimento
             especial para proporcionar momentos únicos aos nossos clientes.
         </p>
@@ -78,4 +85,16 @@ app.innerHTML = `
     </div>
 
 </footer>
+  <section id="contate">
+    <h2>Contato</h2>
+    <p>Email: contato@auroracafe.com</p>
+    <p>Telefone: (83) 99999-9999</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Aurora Café</p>
+     <h2>Contato</h2>
+    <p>Email: contato@auroracafe.com</p>
+    <p>Telefone: (83) 99999-9999</p>
+  </footer>
 `;
