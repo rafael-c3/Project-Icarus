@@ -2,7 +2,10 @@ const app = document.getElementById("app");
 
 app.innerHTML = `
   <header>
-    <h1>Icarus</h1>
+    <div class="logo">
+        <img src="img/logoheader.png" alt="Aurora Café">
+    </div>
+
     <nav>
       <a href="#home">Início</a>
       <a href="#sobre">Quem Somos</a>
@@ -10,21 +13,27 @@ app.innerHTML = `
     </nav>
   </header>
 
-  <section id="home" class="hero">
-    <h2>O melhor café da cidade</h2>
-    <p>Sabor, aroma e experiência moderna.</p>
-  </section>
+ <section id="home" class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <h2>Bem-vindo ao</h2>
+        <h2>Icarus Café</h2
+        <p>Sabores únicos, aroma marcante e experiências inesquecíveis.</p>
+        <a href="#sobre" class="btn">Conheça Mais</a>
+    </div>
+</section>
 
   <section id="sobre" class="sobre">
     
     <div class="sobre-img">
-        <img src="img/cafeteria.jpg" alt="Nossa Cafeteria">
+        <img src="img/quemsomos.png" alt="Nossa Cafeteria">
     </div>
 
     <div class="sobre-texto">
         <h2>Quem Somos</h2>
         <p>
-            No Aurora Café, acreditamos que cada xícara conta uma história.
+            No Icarus Café, acreditamos que cada xícara conta uma história.
             Unimos grãos selecionados, ambiente acolhedor e atendimento
             especial para proporcionar momentos únicos aos nossos clientes.
         </p>
@@ -38,16 +47,35 @@ app.innerHTML = `
 
 </section>
 
-  <section id="contate">
-    <h2>Contato</h2>
-    <p>Email: contato@auroracafe.com</p>
-    <p>Telefone: (83) 99999-9999</p>
-  </section>
+ <section id="contato" class="contato">
+
+    <div class="contato-info">
+        <h2>Entre em Contato</h2>
+        <p>
+            Ficaremos felizes em atender você. Preencha os dados e nossa equipe retornará em breve.
+        </p>
+    </div>
+
+    <form class="form-contato">
+        <input type="text" placeholder="Seu Nome" required>
+        <input type="email" placeholder="Seu Email" required>
+        <input type="tel" placeholder="Seu Celular" required>
+
+        <button type="submit">Entrar em Contato</button>
+    </form>
+
+</section>
 
   <footer>
-    <p>© 2026 Aurora Café</p>
-     <h2>Contato</h2>
-    <p>Email: contato@auroracafe.com</p>
-    <p>Telefone: (83) 99999-9999</p>
-  </footer>
+
+    <div class="footer-logo">
+        <img src="img/logoheader.png" alt="Icarus Café">
+    </div>
+
+    <div class="footer-info">
+        <p>© 2026 Icarus Café - Todos os direitos reservados.</p>
+        <p>Desenvolvido por Rafael Lucas & Gustavo Gonçalves</p>
+    </div>
+
+</footer>
 `;
