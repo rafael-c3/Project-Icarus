@@ -61,6 +61,13 @@ frontend/
 
 ---
 
+## Melhorias Futuras
+
+Com a inclusão de banco de dados é possível fazer:
+* Cadastro de Usuário
+* Banco de dados para definir mesas, gerenciar e manipular os pedidos (dados)
+* Lógicas para Limpar pedido/mesa quando pagos, etc
+
 ## 🤝 Grupo
 
 * Rafael Lucas
