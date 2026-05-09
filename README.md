@@ -63,7 +63,7 @@ frontend/
 
 ## 🤝 Grupo
 
-Rafael Lucas
-Gustavo Gonçalves
+* Rafael Lucas
+* Gustavo Gonçalves
 
 ---
