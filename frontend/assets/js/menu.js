@@ -1,6 +1,10 @@
 import { produtos } from "./products.js";
+import { adicionarAoCarrinho } from "./cart.js";
+
 
 const app = document.getElementById("app");
+
+let valorTotalPedido = 0;
 
 app.innerHTML = `
 
@@ -30,6 +34,14 @@ app.innerHTML = `
                 Descubra sabores únicos preparados especialmente para você.
             </p>
 
+        </section>
+
+        <section>
+            <h2>Mesa 08:</h2>
+            <div id="itens-carrinho">
+                <!-- Itens aparecerão aqui -->
+            </div>
+            <p>Total: R$ <span id="total-pedido">0,00</span></p>
         </section>
 
 
@@ -77,7 +89,6 @@ app.innerHTML = `
 
         </section>
 
-
         <section class="menu" id="menu"></section>
 
     </main>
@@ -107,6 +118,8 @@ const menuContainer = document.getElementById("menu");
 
 produtos.forEach(produto => {
 
+    const precoNumerico = parseFloat(produto.preco.replace('R$', '').replace(',', '.'));
+
     menuContainer.innerHTML += `
 
         <div class="card" data-categoria="${produto.categoria}">
@@ -121,6 +134,11 @@ produtos.forEach(produto => {
             <p>${produto.descricao}</p>
 
             <span>${produto.preco}</span>
+
+            <!-- 3. Botão de Adicionar -->
+            <button class="btn-add" data-preco="${precoNumerico}">
+                Adicionar ao Pedido
+            </button>
 
         </div>
 
@@ -185,6 +203,39 @@ function buscar(){
         }
     });
 }
+
+// =========================
+// LÓGICA DO PEDIDO (SOMA)
+// =========================
+
+document.addEventListener("click", (event) => {
+    // 1. Verifica se clicou no botão de adicionar
+    if (event.target && event.target.classList.contains("btn-add")) {
+        
+        // 2. Captura o preço do atributo data-preco
+        const preco = parseFloat(event.target.getAttribute("data-preco"));
+        
+        // 3. Soma ao valor total (aquela variável que você criou no topo)
+        valorTotalPedido += preco;
+        
+        // 4. Tenta encontrar o display do total
+        const displayTotal = document.getElementById("total-pedido");
+        
+        if (displayTotal) {
+            // 5. Atualiza o texto na tela
+            displayTotal.innerText = valorTotalPedido.toLocaleString('pt-BR', { 
+                minimumFractionDigits: 2, 
+                maximumFractionDigits: 2 
+            });
+        } else {
+            console.error("Elemento 'total-pedido' não encontrado no HTML!");
+        }
+    }
+});
+
+window.add = (nome, preco) => {
+    adicionarAoCarrinho(nome, preco);
+};
 
 
 // =========================
