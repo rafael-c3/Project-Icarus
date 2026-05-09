@@ -1,102 +1,373 @@
 .hero{
     position: relative;
-    height: 100vh;
 
-    background: url('../img/home.png') center center/cover no-repeat;
+    width: 100%;
+    max-width: 100%;
+
+    min-height: 100vh;
+
+    background:
+    url('../img/home.png')
+    center center / cover no-repeat;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
+
+    overflow: hidden;
+
+    isolation: isolate;
 }
+
+
+/* OVERLAY */
 
 .overlay{
     position: absolute;
+
     inset: 0;
+
     background: rgba(0,0,0,0.55);
 }
 
+
+/* CONTEÚDO HERO */
+
 .hero-content{
     position: relative;
+
     z-index: 2;
+
     color: white;
+
     max-width: 700px;
+
+    width: 100%;
+
     padding: 20px;
 }
 
 .hero-content h2{
     font-size: 60px;
+
     margin-bottom: 20px;
+
+    line-height: 1.1;
 }
 
 .hero-content p{
     font-size: 22px;
+
     margin-bottom: 30px;
+
+    line-height: 1.6;
 }
+
+
+/* SOBRE */
 
 .sobre{
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 50px;
+
     padding: 80px 10%;
+
     background: #181818;
+
     flex-wrap: wrap;
+
+    overflow: hidden;
 }
 
 .sobre-img{
     flex: 1;
-    min-width: 300px;
+
+    min-width: 0;
 }
 
 .sobre-img img{
     width: 100%;
+
     border-radius: 16px;
+
     object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.3);
 }
 
 .sobre-texto{
     flex: 1;
-    min-width: 300px;
+
+    min-width: 0;
 }
 
 .sobre-texto h2{
     font-size: 42px;
+
     margin-bottom: 20px;
+
     color: #c49b63;
 }
 
 .sobre-texto p{
     font-size: 18px;
+
     line-height: 1.8;
+
     color: #ddd;
+
     margin-bottom: 15px;
 }
 
+
+/* CONTATO */
+
 .contato{
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     gap: 60px;
+
     padding: 80px 10%;
+
     background: #111;
+
     flex-wrap: wrap;
+
+    overflow: hidden;
 }
 
 .contato-info{
     flex: 1;
-    min-width: 300px;
+
+    min-width: 0;
 }
 
 .contato-info h2{
     font-size: 42px;
+
     margin-bottom: 20px;
+
     color: #c49b63;
 }
 
 .contato-info p{
     font-size: 18px;
+
     color: #ddd;
+
     line-height: 1.7;
+}
+
+/* =========================
+   RESPONSIVO TABLET
+========================= */
+
+@media(max-width:900px){
+
+    .hero{
+
+        padding: 120px 7% 80px;
+
+        min-height: auto;
+    }
+
+    .hero-content{
+
+        max-width: 100%;
+    }
+
+    .hero-content h2{
+
+        font-size: 52px;
+
+        line-height: 1.1;
+    }
+
+    .hero-content p{
+
+        font-size: 18px;
+
+        line-height: 1.6;
+    }
+
+    .sobre,
+    .contato{
+
+        flex-direction: column;
+
+        gap: 50px;
+
+        padding: 70px 7%;
+    }
+
+    .sobre-texto,
+    .contato-info{
+
+        text-align: center;
+    }
+
+    .sobre-img{
+
+        width: 100%;
+    }
+
+    .sobre-img img{
+
+        width: 100%;
+
+        max-width: 600px;
+
+        margin: 0 auto;
+    }
+
+    .form-contato{
+
+        width: 100%;
+
+        max-width: 600px;
+
+        margin: 0 auto;
+    }
+}
+
+
+
+/* =========================
+   RESPONSIVO MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .hero{
+
+        padding: 140px 20px 80px;
+
+        min-height: auto;
+    }
+
+    .hero-content{
+
+        width: 100%;
+    }
+
+    .hero-content h2{
+
+        font-size: 28px;
+
+        line-height: 1.2;
+
+        margin-bottom: 15px;
+    }
+
+    .hero-content p{
+
+        font-size: 15px;
+
+        line-height: 1.7;
+
+        margin-bottom: 25px;
+    }
+
+    .btn{
+
+        width: 100%;
+
+        max-width: 260px;
+
+        padding: 15px 20px;
+
+        font-size: 15px;
+    }
+
+
+    /* SOBRE */
+
+    .sobre{
+
+        padding: 60px 20px;
+
+        gap: 35px;
+    }
+
+    .sobre-texto{
+
+        text-align: center;
+    }
+
+    .sobre-texto h2{
+
+        font-size: 38px;
+
+        margin-bottom: 20px;
+    }
+
+    .sobre-texto p{
+
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+
+    .sobre-img img{
+
+        border-radius: 20px;
+    }
+
+
+    /* CONTATO */
+
+    .contato{
+
+        padding: 60px 20px;
+
+        gap: 40px;
+    }
+
+    .contato-info{
+
+        text-align: center;
+    }
+
+    .contato-info h2{
+
+        font-size: 38px;
+
+        margin-bottom: 15px;
+    }
+
+    .contato-info p{
+
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+    .form-contato{
+
+        padding: 25px;
+    }
+
+    .form-contato input{
+
+        padding: 16px;
+
+        font-size: 15px;
+    }
+
+    .form-contato button{
+
+        padding: 16px;
+
+        font-size: 15px;
+    }
 }

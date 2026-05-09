@@ -1,19 +1,101 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    max-width: 100%;
 }
 
-html{
-    scroll-behavior:smooth;
+html,
+body{
+    width: 100%;
+    min-height: 100%;
+
+    overflow-x: hidden;
+
+    background: #111;
 }
+
+
+/* APP */
+
+#app{
+    width: 100%;
+    min-height: 100vh;
+
+    background: #111;
+
+    overflow-x: hidden;
+}
+
+
+/* BODY */
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#fff3e6;
-    color:rgb(68, 68, 68);
+    font-family: 'Poppins', sans-serif;
+
+    color: rgb(68, 68, 68);
+
+    position: relative;
 }
 
-section{
-    padding:60px 50px;
+
+/* IMAGENS */
+
+img{
+    display: block;
+
+    max-width: 100%;
+}
+
+
+/* LINKS */
+
+a{
+    text-decoration: none;
+}
+
+
+/* LISTAS */
+
+ul{
+    list-style: none;
+}
+
+
+/* BOTÕES */
+
+button{
+    font-family: inherit;
+}
+
+
+/* REMOVE OVERFLOW GERAL */
+
+section,
+div,
+header,
+footer,
+main{
+    max-width: 100%;
+}
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #2a2a2a;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #c49b63;
 }

@@ -1,10 +1,15 @@
 import { produtos } from "./products.js";
-import { adicionarAoCarrinho } from "./cart.js";
+
+import {
+    adicionarAoCarrinho,
+    carregarPedido,
+    limparPedido,
+    alterarMesa
+} from "./cart.js";
 
 
 const app = document.getElementById("app");
 
-let valorTotalPedido = 0;
 
 app.innerHTML = `
 
@@ -36,14 +41,61 @@ app.innerHTML = `
 
         </section>
 
-        <section>
-            <h2>Mesa 08:</h2>
-            <div id="itens-carrinho">
-                <!-- Itens aparecerão aqui -->
-            </div>
-            <p>Total: R$ <span id="total-pedido">0,00</span></p>
-        </section>
 
+        <!-- BOTÃO TOGGLE -->
+
+        <button
+            class="toggle-cart"
+            onclick="toggleCart()"
+        >
+            🛒 Pedido
+        </button>
+
+
+        <!-- SIDEBAR PEDIDO -->
+
+        <aside class="cart-sidebar fechado">
+
+            <h2>Seu Pedido</h2>
+
+            <select
+                id="mesa-select"
+                onchange="alterarMesa(this.value)"
+            >
+
+                <option value="01">Mesa 01</option>
+                <option value="02">Mesa 02</option>
+                <option value="03">Mesa 03</option>
+                <option value="04">Mesa 04</option>
+                <option value="05">Mesa 05</option>
+                <option value="06">Mesa 06</option>
+                <option value="07">Mesa 07</option>
+                <option value="08">Mesa 08</option>
+                <option value="09">Mesa 09</option>
+                <option value="10">Mesa 10</option>
+
+            </select>
+
+            <div id="lista-pedido"></div>
+
+            <div class="cart-total">
+
+                Total:
+                R$ <span id="total-pedido">0,00</span>
+
+            </div>
+
+            <button
+                class="btn-limpar"
+                onclick="limparPedido()"
+            >
+                Limpar Pedido
+            </button>
+
+        </aside>
+
+
+        <!-- BUSCA -->
 
         <section class="busca-container">
 
@@ -56,6 +108,8 @@ app.innerHTML = `
 
         </section>
 
+
+        <!-- FILTROS -->
 
         <section class="filtros">
 
@@ -89,7 +143,10 @@ app.innerHTML = `
 
         </section>
 
-        <section class="menu" id="menu"></section>
+
+        <!-- PRODUTOS -->
+
+        <section id="menu"></section>
 
     </main>
 
@@ -116,31 +173,87 @@ app.innerHTML = `
 
 const menuContainer = document.getElementById("menu");
 
-produtos.forEach(produto => {
+const categorias = {
+    cafe: "Cafés",
+    doce: "Doces",
+    croissant: "Croissants",
+    salgado: "Salgados",
+    sanduiche: "Sanduíches",
+    bolo: "Bolos"
+};
 
-    const precoNumerico = parseFloat(produto.preco.replace('R$', '').replace(',', '.'));
+
+Object.entries(categorias).forEach(([key, titulo]) => {
+
+    const produtosCategoria =
+        produtos.filter(
+            produto => produto.categoria === key
+        );
+
+    let cardsHTML = "";
+
+    produtosCategoria.forEach(produto => {
+
+        const precoNumerico =
+            parseFloat(
+                produto.preco
+                .replace("R$", "")
+                .replace(",", ".")
+            );
+
+        cardsHTML += `
+
+            <div
+                class="card"
+                data-categoria="${produto.categoria}"
+            >
+
+                <img
+                    src="${produto.imagem}"
+                    alt="${produto.nome}"
+                >
+
+                <h3>${produto.nome}</h3>
+
+                <p>${produto.descricao}</p>
+
+                <span>${produto.preco}</span>
+
+                <button
+                    class="btn-add"
+                    onclick='addProduto(
+                        "${produto.nome}",
+                        ${precoNumerico}
+                    )'
+                >
+                    Adicionar ao Pedido
+                </button>
+
+            </div>
+
+        `;
+    });
 
     menuContainer.innerHTML += `
 
-        <div class="card" data-categoria="${produto.categoria}">
+        <section
+            class="categoria-section"
+            data-categoria="${key}"
+        >
 
-            <img
-                src="${produto.imagem}"
-                alt="${produto.nome}"
-            >
+            <div class="categoria-header">
 
-            <h3>${produto.nome}</h3>
+                <h2>${titulo}</h2>
 
-            <p>${produto.descricao}</p>
+            </div>
 
-            <span>${produto.preco}</span>
+            <div class="categoria-grid">
 
-            <!-- 3. Botão de Adicionar -->
-            <button class="btn-add" data-preco="${precoNumerico}">
-                Adicionar ao Pedido
-            </button>
+                ${cardsHTML}
 
-        </div>
+            </div>
+
+        </section>
 
     `;
 });
@@ -152,18 +265,21 @@ produtos.forEach(produto => {
 
 function filtrar(categoria){
 
-    const cards = document.querySelectorAll(".card");
+    const sections =
+        document.querySelectorAll(
+            ".categoria-section"
+        );
 
-    cards.forEach(card => {
+    sections.forEach(section => {
 
         if(categoria === "todos"){
 
-            card.style.display = "block";
+            section.style.display = "block";
 
         }else{
 
-            card.style.display =
-                card.dataset.categoria === categoria
+            section.style.display =
+                section.dataset.categoria === categoria
                 ? "block"
                 : "none";
         }
@@ -183,7 +299,8 @@ function buscar(){
         .value
         .toLowerCase();
 
-    const cards = document.querySelectorAll(".card");
+    const cards =
+        document.querySelectorAll(".card");
 
     cards.forEach(card => {
 
@@ -204,38 +321,38 @@ function buscar(){
     });
 }
 
+
 // =========================
-// LÓGICA DO PEDIDO (SOMA)
+// ADICIONAR PRODUTO
 // =========================
 
-document.addEventListener("click", (event) => {
-    // 1. Verifica se clicou no botão de adicionar
-    if (event.target && event.target.classList.contains("btn-add")) {
-        
-        // 2. Captura o preço do atributo data-preco
-        const preco = parseFloat(event.target.getAttribute("data-preco"));
-        
-        // 3. Soma ao valor total (aquela variável que você criou no topo)
-        valorTotalPedido += preco;
-        
-        // 4. Tenta encontrar o display do total
-        const displayTotal = document.getElementById("total-pedido");
-        
-        if (displayTotal) {
-            // 5. Atualiza o texto na tela
-            displayTotal.innerText = valorTotalPedido.toLocaleString('pt-BR', { 
-                minimumFractionDigits: 2, 
-                maximumFractionDigits: 2 
-            });
-        } else {
-            console.error("Elemento 'total-pedido' não encontrado no HTML!");
-        }
-    }
-});
+function addProduto(nome, preco){
 
-window.add = (nome, preco) => {
-    adicionarAoCarrinho(nome, preco);
-};
+    adicionarAoCarrinho({
+        nome,
+        preco
+    });
+}
+
+
+// =========================
+// TOGGLE SIDEBAR
+// =========================
+
+function toggleCart(){
+
+    const cart =
+        document.querySelector(".cart-sidebar");
+
+    cart.classList.toggle("fechado");
+}
+
+
+// =========================
+// CARREGAR PEDIDO
+// =========================
+
+carregarPedido();
 
 
 // =========================
@@ -244,3 +361,7 @@ window.add = (nome, preco) => {
 
 window.filtrar = filtrar;
 window.buscar = buscar;
+window.addProduto = addProduto;
+window.limparPedido = limparPedido;
+window.alterarMesa = alterarMesa;
+window.toggleCart = toggleCart;
