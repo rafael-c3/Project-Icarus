@@ -1,18 +1,24 @@
 # 📌 Cafeteria ICARUS
 
-> Inicialmente uma cafeteria que apenas exibe o cardápio e mostra um pouco sobre o estabelecimento
+> Cafeteria ICARUS é um mini projeto acadêmico de um sistema de cafeteria digital. O objetivo é oferecer uma interface intuitiva onde os clientes podem navegar por categorias de produtos, realizar buscas em tempo real e gerenciar um pedido com cálculo automático de total.
 
 ---
 
 ## 🚀 Funcionalidades
 
-* Busca e exibe itens que estão no menu
-
+* Landing page com foco em experiência do usuário e apresentação da marca.
+* Interface totalmente adaptada para celulares e tablets, utilizando técnicas de enquadramento flexível.
+* Renderização automática de produtos
+* Barra de pesquisa e filtragem por categoria no cardápio
+* Anotação do Pedido e cálculo por produto
+  
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-* HTML, CSS e Javascript
+* HTML
+* CSS
+* Javascript
 
 ---
 
@@ -22,7 +28,7 @@
 
 > https://drive.google.com/file/d/1J0LnxuC9sboO4OUFwMTy1GzYlNjH2Kjg/view?usp=sharing
 
-## 📦 Instalação
+## ▶️ Instalação e Acesso
 
 ```bash
 # Clone o repositório
@@ -31,13 +37,7 @@ git clone https://github.com/rafael-c3/Project-Icarus.git
 # Acesse a pasta
 cd Project-Icarus
 
-```
-
----
-
-## ▶️ Como Usar
-
-```bash
+# Abra o arquivo frontend/index.html (opcional)
 
 ```
 
@@ -49,21 +49,21 @@ Depois disso, acesse:
 ## 📁 Estrutura do Projeto
 
 ```
-📦 Project-Icarus
- ┣ 📂 home.html
- ┣ 📂 
- ┣ 📂 
- ┗ 📜 README.md
+frontend/
+├── assets/
+│   ├── css/         
+│   ├── img/          
+│   └── js/           
+├── pages/
+│   └── menu.html     
+└── index.html        # Página principal
 ```
 
 ---
 
-## 🤝 Contribuição
+## 🤝 Grupo
 
-1. Faça um fork do projeto
-2. Crie uma branch (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`)
-4. Push (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+Rafael Lucas
+Gustavo Gonçalves
 
 ---
