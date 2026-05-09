@@ -1,0 +1,167 @@
+.menu-page{
+    min-height: 100vh;
+    background: #111;
+    padding-top: 120px;
+}
+
+
+/* HERO */
+
+.menu-hero{
+    text-align: center;
+    padding: 60px 20px 30px;
+    color: white;
+}
+
+.menu-hero h1{
+    font-size: 56px;
+    margin-bottom: 20px;
+    color: #c49b63;
+}
+
+.menu-hero p{
+    font-size: 18px;
+    color: #ccc;
+}
+
+
+/* BUSCA */
+
+.busca-container{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+#busca{
+    width: 320px;
+    padding: 14px 20px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 50px;
+
+    background: #1f1f1f;
+    color: white;
+
+    font-size: 15px;
+}
+
+
+/* FILTROS */
+
+.filtros{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    margin-bottom: 50px;
+}
+
+.filtros button{
+    padding: 12px 24px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #1e1e1e;
+    color: white;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.filtros button:hover{
+    background: #c49b63;
+    transform: translateY(-2px);
+}
+
+
+/* GRID MENU */
+
+.menu{
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 30px;
+
+    padding: 0 8% 80px;
+}
+
+
+/* CARD */
+
+.card{
+    background: #1b1b1b;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: .3s;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+    transform: translateY(-8px);
+}
+
+
+.card img{
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+}
+
+
+.card h3{
+    font-size: 24px;
+
+    color: white;
+
+    margin: 20px 20px 10px;
+}
+
+
+.card p{
+    color: #bbb;
+
+    font-size: 15px;
+
+    margin: 0 20px 15px;
+}
+
+
+.card span{
+    display: block;
+
+    margin: 0 20px 25px;
+
+    color: #c49b63;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    .menu-hero h1{
+        font-size: 40px;
+    }
+
+    #busca{
+        width: 90%;
+    }
+
+}

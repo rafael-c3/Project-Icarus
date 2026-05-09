@@ -1,0 +1,102 @@
+.hero{
+    position: relative;
+    height: 100vh;
+
+    background: url('../img/home.png') center center/cover no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 700px;
+    padding: 20px;
+}
+
+.hero-content h2{
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.hero-content p{
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.sobre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 80px 10%;
+    background: #181818;
+    flex-wrap: wrap;
+}
+
+.sobre-img{
+    flex: 1;
+    min-width: 300px;
+}
+
+.sobre-img img{
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.sobre-texto{
+    flex: 1;
+    min-width: 300px;
+}
+
+.sobre-texto h2{
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #c49b63;
+}
+
+.sobre-texto p{
+    font-size: 18px;
+    line-height: 1.8;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.contato{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 10%;
+    background: #111;
+    flex-wrap: wrap;
+}
+
+.contato-info{
+    flex: 1;
+    min-width: 300px;
+}
+
+.contato-info h2{
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #c49b63;
+}
+
+.contato-info p{
+    font-size: 18px;
+    color: #ddd;
+    line-height: 1.7;
+}
